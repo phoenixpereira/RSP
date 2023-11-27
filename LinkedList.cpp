@@ -50,6 +50,18 @@ public:
     return;
   }
 
+  // Search for a value in the linked list
+  bool search(int value) {
+    Node *curr = head;
+    while (curr != nullptr) {
+      if (curr->data == value) {
+        return true; // Value found
+      }
+      curr = curr->next;
+    }
+    return false; // Value not found
+  }
+
   // Display all nodes in list
   void display() {
     for (Node *curr = head; curr != nullptr; curr = curr->next) {
@@ -74,4 +86,23 @@ int main(void) {
 
   list->remove(3);
   list->display();
+
+  // Search for a value
+  int searchValue = 2;
+  if (list->search(searchValue)) {
+    cout << "Value " << searchValue << " is present in the linked list."
+         << endl;
+  } else {
+    cout << "Value " << searchValue << " is not present in the linked list."
+         << endl;
+  }
+
+  searchValue = 9;
+  if (list->search(searchValue)) {
+    cout << "Value " << searchValue << " is present in the linked list."
+         << endl;
+  } else {
+    cout << "Value " << searchValue << " is not present in the linked list."
+         << endl;
+  }
 }
