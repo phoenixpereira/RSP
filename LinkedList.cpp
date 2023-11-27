@@ -2,8 +2,7 @@
 using namespace std;
 
 // Object storing single node, with data and pointer to next node
-class Node {
-public:
+struct Node {
   int data;
   Node *next;
 
