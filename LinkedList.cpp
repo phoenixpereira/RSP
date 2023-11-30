@@ -73,23 +73,23 @@ public:
 
 // Main function
 int main(void) {
-  LinkedList *list = new LinkedList();
-  list->remove(1);
-  list->display();
+  LinkedList list = LinkedList();
+  list.remove(1);
+  list.display();
 
-  list->insert(1);
-  list->insert(2);
-  list->insert(3);
-  list->insert(4);
-  list->insert(5);
-  list->display();
+  list.insert(1);
+  list.insert(2);
+  list.insert(3);
+  list.insert(4);
+  list.insert(5);
+  list.display();
 
-  list->remove(3);
-  list->display();
+  list.remove(3);
+  list.display();
 
   // Search for a value
   int searchValue = 2;
-  if (list->search(searchValue)) {
+  if (list.search(searchValue)) {
     cout << "Value " << searchValue << " is present in the linked list."
          << endl;
   } else {
@@ -98,7 +98,7 @@ int main(void) {
   }
 
   searchValue = 9;
-  if (list->search(searchValue)) {
+  if (list.search(searchValue)) {
     cout << "Value " << searchValue << " is present in the linked list."
          << endl;
   } else {
