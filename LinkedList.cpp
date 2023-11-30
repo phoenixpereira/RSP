@@ -71,7 +71,6 @@ public:
   }
 };
 
-// Main function
 int main(void) {
   LinkedList list = LinkedList();
   list.remove(1);

@@ -26,9 +26,12 @@ public:
   void printGraph() {
     for (int i = 0; i < numVertices; i++) {
       cout << "Adjacency list of vertex " << i << ": ";
-      for (int j : adjList[i]) {
-        cout << j << " ";
+      int j = 0;
+      while (j < adjList[i].size()) {
+        cout << adjList[i][j] << " ";
+        j++;
       }
+
       cout << endl;
     }
   }
