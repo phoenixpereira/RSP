@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 #include <vector>
 using namespace std;
 
@@ -8,19 +9,25 @@ private:
   vector<bool> visited;      // Keeps track of visited nodes
 
 public:
-  // Performs Depth-First Search starting from a given node
-  void dfs(int node) {
-    visited[node] = true;
-    cout << node << " ";
+  // Performs Breadth-First Search starting from a given node
+  void bfs(int startNode) {
+    visited[startNode] = true;
+    queue<int> queue; // Queue to store nodes for BFS
 
-    // Traverses all adjacent nodes of the current node
-    int j = 0;
-    while (j < graph[node].size()) {
-      int adjacentNode = graph[node][j];
-      if (!visited[adjacentNode]) {
-        dfs(adjacentNode);
+    queue.push(startNode); // Enqueue the start node
+
+    while (!queue.empty()) {
+      int node = queue.front();
+      queue.pop();
+      cout << node << " ";
+
+      // Traverses all adjacent nodes of the current node
+      for (int adjacentNode : graph[node]) {
+        if (!visited[adjacentNode]) {
+          visited[adjacentNode] = true;
+          queue.push(adjacentNode); // Enqueue adjacent nodes for BFS
+        }
       }
-      j++;
     }
   }
 
@@ -64,9 +71,9 @@ int main() {
   graph.addEdge(2, 3);
   graph.addEdge(1, 7);
 
-  // Performs DFS traversal starting from node 0
-  cout << "DFS traversal: ";
-  graph.dfs(0);
+  // Performs BFS traversal starting from node 0
+  cout << "BFS traversal: ";
+  graph.bfs(0);
   cout << endl;
 
   // Checks if value 3 exists in the graph
