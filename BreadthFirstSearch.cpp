@@ -22,11 +22,14 @@ public:
       cout << node << " ";
 
       // Traverses all adjacent nodes of the current node
-      for (int adjacentNode : graph[node]) {
+      int index = 0;
+      while (index < graph[node].size()) {
+        int adjacentNode = graph[node][index];
         if (!visited[adjacentNode]) {
           visited[adjacentNode] = true;
           queue.push(adjacentNode); // Enqueue adjacent nodes for BFS
         }
+        index++;
       }
     }
   }
