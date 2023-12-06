@@ -46,18 +46,6 @@ public:
     graph.resize(numNodes);
     visited.resize(numNodes, false);
   }
-
-  // Checks if a value exists in the graph
-  bool containsValue(int value) {
-    for (const auto &nodes : graph) {
-      for (int node : nodes) {
-        if (node == value) {
-          return true; // Value found in the graph
-        }
-      }
-    }
-    return false; // Value not found in the graph
-  }
 };
 
 int main() {
@@ -78,22 +66,4 @@ int main() {
   cout << "BFS traversal: ";
   graph.bfs(0);
   cout << endl;
-
-  // Checks if value 3 exists in the graph
-  int searchValue = 3;
-
-  if (graph.containsValue(searchValue)) {
-    cout << "Value " << searchValue << " exists in the graph." << endl;
-  } else {
-    cout << "Value " << searchValue << " does not exist in the graph." << endl;
-  }
-
-  // Checks if value 5 exists in the graph
-  searchValue = 5;
-
-  if (graph.containsValue(searchValue)) {
-    cout << "Value " << searchValue << " exists in the graph." << endl;
-  } else {
-    cout << "Value " << searchValue << " does not exist in the graph." << endl;
-  }
 }
